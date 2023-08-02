@@ -151,7 +151,7 @@ void PadMgr_RumbleControl(PadMgr* padMgr) {
             } else if (var4 == 11) {
                 padMgr->pakType[i] = 2;
             } else if (var4 == 4) {
-                LOG_NUM("++errcnt", ++errcnt);
+                //LOG_NUM("++errcnt", ++errcnt);
                 osSyncPrintf(VT_FGCOL(YELLOW));
                 // "Controller pack communication error"
                 osSyncPrintf("padmgr: %dコン: %s\n", i + 1, "コントローラパックの通信エラー");
@@ -258,7 +258,7 @@ void PadMgr_ProcessInputs(PadMgr* padMgr) {
                 break;
             case 4:
                 input->cur = input->prev;
-                LOG_NUM("this->Key_switch[i]", padMgr->ctrlrIsConnected[i]);
+                //LOG_NUM("this->Key_switch[i]", padMgr->ctrlrIsConnected[i]);
                 osSyncPrintf(VT_FGCOL(YELLOW));
                 // "Overrun error occurred"
                 osSyncPrintf("padmgr: %dコン: %s\n", i + 1, "オーバーランエラーが発生");
@@ -280,7 +280,7 @@ void PadMgr_ProcessInputs(PadMgr* padMgr) {
                 }
                 break;
             default:
-                LOG_HEX("padnow1->errno", padnow1->err_no);
+                //LOG_HEX("padnow1->errno", padnow1->err_no);
                 Fault_AddHungupAndCrash(__FILE__, __LINE__);
         }
 
